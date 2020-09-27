@@ -1,8 +1,10 @@
 import { prefix } from '@root/config.json';
 import laughShort from '@commands/laughShort';
+import laughLong from '@commands/laughLong';
 
 const commandList = {
   hehe: laughShort,
+  huahaha: laughLong,
 };
 
 const fetchCommandAndArguments = (string) => {
@@ -17,7 +19,6 @@ const runCommandStrategy = async (commandName, message) => {
 
   if (!isOnCommandList) return;
 
-  console.log(`RUN command: ${commandName}`);
   await commandList[commandName].execute(message);
 };
 

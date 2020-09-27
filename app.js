@@ -11,7 +11,6 @@ client.once('ready', () => {
 });
 
 client.on('message', async (message) => {
-  console.log('message received by server');
   await command(message);
 });
 
