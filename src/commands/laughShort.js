@@ -1,21 +1,20 @@
-const grumbleChat = (message) => {
-  message.channel.send('GAK LUCU GOVLOG!');
+import { createReadStream } from 'fs';
+import { playbackVolume } from '@root/config.json';
+
+const grumbleChat = async (message) => {
+  await message.channel.send('GAK LUCU GOVLOG!');
 };
 
-const playLaughTrack = async (message, funcName) => {
+const playLaughTrack = async (message) => {
   const connection = await message.member.voice.channel.join();
-  const dispatcher = connection.play('audio/chuckleBajajBajuri.ogg');
-
-  dispatcher.on('start', () => {
-    console.log(`${funcName} audio is playing!`);
+  const dispatcher = connection.play(createReadStream('audio/chuckleBajajBajuri.opus'), {
+    volume: parseFloat(playbackVolume),
+    type: 'ogg/opus',
   });
 
   dispatcher.on('finish', () => {
-    console.log(`${funcName} audio is finish!`);
-    message.member.voice.channel.leave();
+    connection.disconnect();
   });
-
-  dispatcher.on('error', console.error);
 };
 
 export default {
@@ -25,9 +24,9 @@ export default {
     const isUserInVoiceChannel = message.member.voice.channel !== null;
 
     if (!isUserInVoiceChannel) {
-      grumbleChat(message);
-    } else {
-      await playLaughTrack(message, this.name);
+      return grumbleChat(message);
     }
+
+    return playLaughTrack(message);
   },
 };
