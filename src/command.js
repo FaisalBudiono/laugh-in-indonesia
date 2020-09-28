@@ -1,9 +1,11 @@
 import { prefix } from '@root/config.json';
 import laughShort from '@commands/laughShort';
 import laughLong from '@commands/laughLong';
+import help from '@commands/help';
 
 const commandList = {
   hehe: laughShort,
+  help,
   huahaha: laughLong,
 };
 
