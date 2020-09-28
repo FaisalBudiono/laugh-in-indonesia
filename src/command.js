@@ -1,12 +1,14 @@
 import { prefix } from '@root/config.json';
 import shortLaugh from '@commands/voice/shortLaugh';
 import longLaugh from '@commands/voice/longLaugh';
+import miskinSandra from '@commands/voice/miskinSandraVoice';
 import help from '@commands/help';
 
 const commandList = {
   hehe: shortLaugh,
   help,
   huahaha: longLaugh,
+  miskin: miskinSandra,
 };
 
 const fetchCommandAndArguments = (string) => {
