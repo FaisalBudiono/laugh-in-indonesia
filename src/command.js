@@ -1,6 +1,6 @@
 import { prefix } from '@root/config.json';
-import shortLaugh from '@commands/laughs/voice/shortLaugh';
-import longLaugh from '@commands/laughs/voice/longLaugh';
+import shortLaugh from '@commands/voice/shortLaugh';
+import longLaugh from '@commands/voice/longLaugh';
 import help from '@commands/help';
 
 const commandList = {
