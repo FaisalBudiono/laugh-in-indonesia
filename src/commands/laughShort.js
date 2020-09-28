@@ -7,9 +7,13 @@ const grumbleChat = async (message) => {
 
 const playLaughTrack = async (message) => {
   const connection = await message.member.voice.channel.join();
-  connection.play(createReadStream('audio/chuckleBajajBajuri.opus'), {
+  const dispatcher = connection.play(createReadStream('audio/chuckleBajajBajuri.opus'), {
     volume: parseFloat(playbackVolume),
     type: 'ogg/opus',
+  });
+
+  dispatcher.on('finish', () => {
+    connection.disconnect();
   });
 };
 
