@@ -1,9 +1,6 @@
 import { createReadStream } from 'fs';
+import shoutingAngrily from '@commands/laughs/chat/shoutingAngrily';
 import { playbackVolume } from '@root/config.json';
-
-const grumbleChat = async (message) => {
-  await message.channel.send('GAK LUCU GOVLOG!');
-};
 
 const playLaughTrack = async (message) => {
   const connection = await message.member.voice.channel.join();
@@ -24,7 +21,7 @@ export default {
     const isUserInVoiceChannel = message.member.voice.channel !== null;
 
     if (!isUserInVoiceChannel) {
-      return grumbleChat(message);
+      return shoutingAngrily.execute(message);
     }
 
     return playLaughTrack(message);
