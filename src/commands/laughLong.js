@@ -19,7 +19,7 @@ const playLaughTrack = async (message) => {
 
 export default {
   name: 'Laugh Long',
-  description: 'Playing long laugh track from Bajaj Bajuri',
+  description: 'Playing long laugh track from Bajaj Bajuri.',
   async execute(message) {
     const isUserInVoiceChannel = message.member.voice.channel !== null;
 
