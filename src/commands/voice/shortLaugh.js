@@ -4,7 +4,7 @@ import { playbackVolume } from '@root/config.json';
 
 const playLaughTrack = async (message) => {
   const connection = await message.member.voice.channel.join();
-  const dispatcher = connection.play(createReadStream('audio/chuckleBajajBajuri2.opus'), {
+  const dispatcher = connection.play(createReadStream('audio/chuckleBajajBajuri.opus'), {
     volume: parseFloat(playbackVolume),
     type: 'ogg/opus',
   });
