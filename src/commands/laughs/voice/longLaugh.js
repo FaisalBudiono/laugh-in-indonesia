@@ -1,13 +1,10 @@
 import { createReadStream } from 'fs';
+import shoutingSarcastically from '@commands/laughs/chat/shoutingSarcastically';
 import { playbackVolume } from '@root/config.json';
-
-const grumbleChat = async (message) => {
-  await message.channel.send('GAK LUCU GOVLOG!');
-};
 
 const playLaughTrack = async (message) => {
   const connection = await message.member.voice.channel.join();
-  const dispatcher = connection.play(createReadStream('audio/chuckleBajajBajuri.opus'), {
+  const dispatcher = connection.play(createReadStream('audio/longLaughBajajBajuri.opus'), {
     volume: parseFloat(playbackVolume),
     type: 'ogg/opus',
   });
@@ -18,13 +15,13 @@ const playLaughTrack = async (message) => {
 };
 
 export default {
-  name: 'Laugh Short',
-  description: 'Playing short laugh track from Bajaj Bajuri.',
+  name: 'Long Laugh',
+  description: 'Playing long laugh track from Bajaj Bajuri if the user that invoke this command is on voice channel. If not, the bot will send a sarcastic message.',
   async execute(message) {
     const isUserInVoiceChannel = message.member.voice.channel !== null;
 
     if (!isUserInVoiceChannel) {
-      return grumbleChat(message);
+      return shoutingSarcastically.execute(message);
     }
 
     return playLaughTrack(message);
