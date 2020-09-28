@@ -1,12 +1,12 @@
 import { prefix } from '@root/config.json';
-import laughShort from '@commands/laughs/voice/laughShort';
-import laughLong from '@commands/laughs/voice/laughLong';
+import shortLaugh from '@commands/laughs/voice/shortLaugh';
+import longLaugh from '@commands/laughs/voice/longLaugh';
 import help from '@commands/help';
 
 const commandList = {
-  hehe: laughShort,
+  hehe: shortLaugh,
   help,
-  huahaha: laughLong,
+  huahaha: longLaugh,
 };
 
 const fetchCommandAndArguments = (string) => {
