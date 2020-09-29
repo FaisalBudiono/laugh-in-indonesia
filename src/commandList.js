@@ -3,6 +3,7 @@ import longLaugh from '@commands/voice/longLaugh';
 import malesMauBeliTruk from '@commands/voice/malesMauBeliTruk';
 import miskinSandra from '@commands/voice/miskinSandraVoice';
 import sombongAmat from '@commands/voice/sombongAmat';
+import guaJadiNgeri from '@commands/voice/guaJadiNgeri';
 import help from '@commands/help';
 
 export default {
@@ -11,5 +12,6 @@ export default {
   huahaha: longLaugh,
   males: malesMauBeliTruk,
   miskin: miskinSandra,
+  ngeri: guaJadiNgeri,
   sombong: sombongAmat,
 };
