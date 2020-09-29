@@ -4,11 +4,11 @@ import { prefix } from '@root/config.json';
 const firstCharacterLowercase = (string) => string.charAt(0).toLowerCase() + string.slice(1);
 
 const getFormattedText = () => {
-  let text = 'Here is the list of all command the bot have:\n\n';
+  let text = 'Here is the list of all commands the bot have:\n\n';
 
   Object.entries(CommandList).forEach(([commandTriggerName, { description }]) => {
     const formattedDescription = firstCharacterLowercase(description);
-    text += `\`${prefix}${commandTriggerName}\`: ${formattedDescription}\n`;
+    text += `\`${prefix}${commandTriggerName}\` for ${formattedDescription}\n`;
   });
 
   return text;
