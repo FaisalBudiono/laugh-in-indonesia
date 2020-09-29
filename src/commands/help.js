@@ -1,23 +1,20 @@
-import { CommandList } from '@src/command';
+import { sendText } from '@src/responseHandler';
+import commandList from '@src/commandList';
 import { prefix } from '@root/config.json';
 
 const firstCharacterLowercase = (string) => string.charAt(0).toLowerCase() + string.slice(1);
 
-const getFormattedText = () => {
-  let text = 'Here is the list of all command the bot have:\n\n';
-
-  Object.entries(CommandList).forEach(([commandTriggerName, { description }]) => {
-    const formattedDescription = firstCharacterLowercase(description);
-    text += `\`${prefix}${commandTriggerName}\`: ${formattedDescription}\n`;
-  });
-
-  return text;
-};
-
 export default {
   name: 'Help',
   description: 'Displaying all command list and the descriptions.',
-  async execute(message) {
-    await message.reply(getFormattedText());
+  async execute(messageInstance) {
+    let helpText = 'Here is the list of all commands the bot have:\n\n';
+
+    Object.entries(commandList).forEach(([commandTriggerName, { description }]) => {
+      const formattedDescription = firstCharacterLowercase(description);
+      helpText += `\`${prefix}${commandTriggerName}\` for ${formattedDescription}\n`;
+    });
+
+    await sendText(messageInstance, helpText);
   },
 };
