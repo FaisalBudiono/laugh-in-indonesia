@@ -1,4 +1,4 @@
-import { CommandList } from '@src/command';
+import commandList from '@src/commandList';
 import { prefix } from '@root/config.json';
 
 const firstCharacterLowercase = (string) => string.charAt(0).toLowerCase() + string.slice(1);
@@ -6,7 +6,7 @@ const firstCharacterLowercase = (string) => string.charAt(0).toLowerCase() + str
 const getFormattedText = () => {
   let text = 'Here is the list of all commands the bot have:\n\n';
 
-  Object.entries(CommandList).forEach(([commandTriggerName, { description }]) => {
+  Object.entries(commandList).forEach(([commandTriggerName, { description }]) => {
     const formattedDescription = firstCharacterLowercase(description);
     text += `\`${prefix}${commandTriggerName}\` for ${formattedDescription}\n`;
   });
