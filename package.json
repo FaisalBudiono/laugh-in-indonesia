@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "engines": {
+    "node": "12.11.1"
+  },
   "scripts": {
     "start": "node -r esm -r module-alias/register app",
     "dev": "nodemon -r esm -r module-alias/register app"
@@ -17,6 +20,7 @@
     "esm": "^3.2.25",
     "ffmpeg-static": "^4.2.7",
     "fs": "0.0.1-security",
+    "http": "0.0.1-security",
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
